@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIVEA Restaurant | Trieste - Eccellenza Contemporanea</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDFBF7',
+                        sage: '#6A8D9D', /* Cambiato in Azzurro Polvere / Carta da Zucchero */
+                        sagelgiht: '#F2F5F7', /* Sfondo azzurrato chiarissimo coordinato */
+                        charcoal: '#1A1A1A',
+                        muted: '#666666'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Helvetica', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="R.ico">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FBFBFA; /* Sfondo chiaro neutro ed elegantissimo */
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .text-accent { color: #1A1A1A; }
+        .bg-accent { background-color: #6A8D9D; }
+        .hero-overlay { background: rgba(0, 0, 0, 0.55); }
+    </style>
+</head>
+<body class="text-stone-800 antialiased selection:bg-stone-200">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#FBFBFA]/80 backdrop-blur-md border-b border-stone-200/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#hero" class="text-xl font-serif tracking-widest uppercase text-stone-900">
+                Rivea
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm tracking-widest uppercase font-medium">
+                <a href="#ristorante" class="hover:text-stone-500 transition-colors">Il Ristorante</a>
+                <a href="#menu" class="hover:text-stone-500 transition-colors">Menu</a>
+                <a href="#location" class="hover:text-stone-500 transition-colors">Dove Siamo</a>
+                <a href="#prenota" class="bg-stone-900 text-white px-5 py-2.5 rounded-none hover:bg-sage transition-colors">Prenota</a>
+            </nav>
+
+            <button id="menu-btn" class="md:hidden flex flex-col justify-between w-6 h-4 transform transition-all duration-300 z-50 focus:outline-none" aria-label="Apri Menu">
+                <span id="bar1" class="w-full h-[1.5px] bg-stone-900 transition-all duration-300"></span>
+                <span id="bar2" class="w-full h-[1.5px] bg-stone-900 transition-all duration-300"></span>
+                <span id="bar3" class="w-full h-[1.5px] bg-stone-900 transition-all duration-300"></span>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-[#FBFBFA] z-40 flex flex-col justify-center items-center transform translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+        <nav class="flex flex-col items-center space-y-8 text-xl tracking-widest uppercase font-serif">
+            <a href="#ristorante" class="mobile-link text-stone-900 hover:text-stone-500 transition-colors">Il Ristorante</a>
+            <a href="#menu" class="mobile-link text-stone-900 hover:text-stone-500 transition-colors">Menu</a>
+            <a href="#location" class="mobile-link text-stone-900 hover:text-stone-500 transition-colors">Dove Siamo</a>
+            <a href="#prenota" class="mobile-link bg-stone-900 text-white px-8 py-3 rounded-none uppercase text-sm font-sans tracking-widest font-medium">Prenota un tavolo</a>
+        </nav>
+    </div>
+
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 hero-overlay z-10"></div>
+            <img src="bg.jpg" alt="Rivea Restaurant Atmosphere" class="w-full h-full object-cover">
+        </div>
+
+        <div class="relative z-20 max-w-4xl mx-auto px-6 text-center">
+            <span class="text-sm tracking-widest uppercase text-zinc-300 block mb-4 font-medium">Siamo orgogliosi di presentarvi</span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-tight mb-6">
+                Rivea Restaurant
+            </h1>
+            <p class="text-lg md:text-xl font-light italic text-zinc-200 max-w-xl mx-auto mb-10">
+                Un'experience gastronomica nel cuore pulsante di Trieste. Raffinatezza, ricerca e identità mediterranea.
+            </p>
+            <a href="#prenota" class="inline-block border border-white text-white hover:bg-white hover:text-stone-900 px-8 py-3.5 tracking-widest text-sm uppercase transition-all duration-300 rounded-none font-medium">
+                Prenota un Tavolo
+            </a>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+            <a href="#menu" aria-label="Scorri giù">
+                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
+        </div>
+    </section>
+
+    <section id="ristorante" class="py-24 bg-stone-900 text-stone-100">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-6">
+                <span class="text-xs uppercase tracking-widest text-stone-400 font-semibold block">L'Identità</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-white">Eleganza tra le Rive</h2>
+                <p class="text-stone-400 font-light leading-relaxed">
+                    Situato in Via Luigi Cadorna 7, a pochi passi dalle rive di Trieste, RIVEA accoglie i suoi ospiti in un ambiente intimo, dove il design moderno si fonde con la storia del palazzo.
+                </p>
+                <p class="text-stone-400 font-light leading-relaxed">
+                    Abbiamo creato uno spazio dove l'attenzione al dettaglio è sovrana: dall'impiattamento creativo alla carta vini d'eccellenza, ogni elemento è pensato per coccolare l'ospite.
+                </p>
+            </div>
+            <div class="bg-stone-800/50 border border-stone-700 p-8 rounded-none">
+                <p class="text-lg font-serif italic text-sage mb-4">"Cucina originale e innovativa, con piatti studiati e una chiara identità."</p>
+                <p class="text-sm text-stone-500 uppercase tracking-widest">— Giacomo T.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-24 border-t border-stone-200/60 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-widest text-stone-400 font-semibold block mb-2">Carta Gastronomica</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-stone-900">Il Nostro Menu</h2>
+                <div class="w-12 h-[1px] bg-stone-300 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
+                
+                <div>
+                    <h3 class="text-xl font-serif text-stone-900 border-b border-stone-100 pb-3 mb-6 tracking-wide">
+                        Antipasti
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Uovo morbido, asparagi verdi croccanti e spuma di Grana Padano</h4>
+                                <span class="font-medium text-stone-900 ml-4">16,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Uova, Latte e relativi prodotti (incluso il lattosio)</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Salmone marinato, cavolfiore, pistacchi e aneto</h4>
+                                <span class="font-medium text-stone-900 ml-4">18,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Pesce, Frutta a guscio e relativi prodotti</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Battuta di manzo, tuorlo marinato, senape Dijone e chips di pane</h4>
+                                <span class="font-medium text-stone-900 ml-4">17,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Cereali con glutine, Uova, Senape e relativi prodotti</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Seppia scottata, cipolla rossa caramellata, fave, lime e croccante di polenta</h4>
+                                <span class="font-medium text-stone-900 ml-4">18,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Molluschi e relativi prodotti</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Trancio di tonno, salsa di soia e zenzero, daikon e mayo al wasabi</h4>
+                                <span class="font-medium text-stone-900 ml-4">19,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Pesce, Semi di soia, Senape e relativi prodotti</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-serif text-stone-900 border-b border-stone-100 pb-3 mb-6 tracking-wide">
+                        Primi Piatti
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Spaghetto al burro acido, alici e crumble di pane</h4>
+                                <span class="font-medium text-stone-900 ml-4">16,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Cereali con glutine, Pesce, Latte e lattosio</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Tagliolino in busara di scampi</h4>
+                                <span class="font-medium text-stone-900 ml-4">18,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Cereali con glutine, Crostacei, Anidride solforosa e solfiti</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Eliconi al ragù bianco d’anatra, sublime di Montasio e jous di terrano</h4>
+                                <span class="font-medium text-stone-900 ml-4">17,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Cereali con glutine, Latte, Sedano, Anidride solforosa</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Risotto Aquerello, asparagi, limone e caprino</h4>
+                                <span class="font-medium text-stone-900 ml-4">20,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Latte e relativi prodotti (incluso il lattosio)</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Ravioli ripieni di pesce, burrata, polvere di cappero (consommé di crostacei)</h4>
+                                <span class="font-medium text-stone-900 ml-4">20,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Cereali con glutine, Crostacei, Pesce, Latte</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 mt-4">
+                    <h3 class="text-xl font-serif text-stone-900 border-b border-stone-100 pb-3 mb-6 tracking-wide">
+                        Secondi Piatti
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Tonno in crosta di sesamo, maionese al mango e zucchine marinate</h4>
+                                <span class="font-medium text-stone-900 ml-4">25,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Pesce, Semi di sesamo, Uova e relativi prodotti</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Polpo, patata schiacciata, terra d’olive, datterini confit e olio al prezzemolo</h4>
+                                <span class="font-medium text-stone-900 ml-4">25,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Molluschi e relativi prodotti</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Guancia di maiale, sedano rapa, pak-choi e pop corn</h4>
+                                <span class="font-medium text-stone-900 ml-4">22,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Sedano e relativi prodotti, Anidride solforosa</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Trancio di branzino, purea di pastinaca, finocchio e olive taggiasche</h4>
+                                <span class="font-medium text-stone-900 ml-4">26,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Pesce e relativi prodotti</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Melanzana, yogurt alle erbe, miso e nocciole</h4>
+                                <span class="font-medium text-stone-900 ml-4">20,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Semi di soia, Latte, Frutta a guscio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 mt-4 pt-6 border-t border-stone-100">
+                    <h3 class="text-xl font-serif text-stone-900 border-b border-stone-100 pb-3 mb-6 tracking-wide">
+                        Dessert
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Tiramisù</h4>
+                                <span class="font-medium text-stone-900 ml-4">6,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Cereali con glutine, Uova, Latte e lattosio</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Panna cotta al mango, crumble alle nocciole e gel frutti di bosco</h4>
+                                <span class="font-medium text-stone-900 ml-4">7,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Latte, Frutta a guscio (nocciole)</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Cremoso cioccolato fondente, olio EVO Parovel e sale Maldon</h4>
+                                <span class="font-medium text-stone-900 ml-4">8,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Latte e relativi prodotti (incluso il lattosio)</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="font-medium text-stone-900 group-hover:text-sage transition-colors">Strudel moderno (mela, crumble alla cannella, crema inglese, gelato mela verde)</h4>
+                                <span class="font-medium text-stone-900 ml-4">7,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic">Allergeni: Cereali con glutine, Uova, Latte</p>
+                        </div>
+                        <div class="group md:col-span-2 bg-[#F2F5F7] p-4 border border-stone-100 mt-2">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="font-serif italic text-stone-800">Consiglio vino: Picolit “Tunella” – 4 cl</h4>
+                                <span class="font-medium text-stone-900 ml-4">6,50€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light italic mt-1">Allergeni: Solfiti</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 border-t border-stone-100 pt-8 mt-4">
+                    <h3 class="text-xl font-serif text-stone-900 border-b border-stone-100 pb-3 mb-6 tracking-wide">
+                        Menu Degustazione & Abbinamento Vini
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="font-medium text-stone-900">3 portate <span class="text-xs text-stone-400 font-normal italic">(per tutto il tavolo)</span></h4>
+                                <span class="font-medium text-stone-900">52,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light mt-1">Abbinamento 3 calici vini: <span class="font-medium text-stone-800">18,00€</span></p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="font-medium text-stone-900">4 portate <span class="text-xs text-stone-400 font-normal italic">(per tutto il tavolo)</span></h4>
+                                <span class="font-medium text-stone-900">60,00€</span>
+                            </div>
+                            <p class="text-xs text-stone-400 font-light mt-1">Abbinamento 4 calici vini: <span class="font-medium text-stone-800">25,00€</span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lg:col-span-2 border-t border-stone-200/60 mt-16 pt-8 text-left text-xs text-stone-400 space-y-3 font-light tracking-wide uppercase">
+                <p class="font-medium text-stone-600">Elenco Allergeni (Reg. 1169/2011):</p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 normal-case text-stone-400">
+                    <span>• Cereali con glutine</span>
+                    <span>• Crostacei</span>
+                    <span>• Uova</span>
+                    <span>• Pesce</span>
+                    <span>• Arachidi</span>
+                    <span>• Semi di soia</span>
+                    <span>• Latte (incluso lattosio)</span>
+                    <span>• Frutta a guscio</span>
+                    <span>• Sedano</span>
+                    <span>• Senape</span>
+                    <span>• Semi di sesamo</span>
+                    <span>• Anidride solforosa / solfiti</span>
+                    <span>• Lupino</span>
+                    <span>• Molluschi</span>
+                </div>
+                <p class="pt-4 italic border-t border-stone-100 normal-case">Alcuni prodotti acquistati sono congelati, altri sono freschi all’origine e vengono abbattuti dopo una nostra lavorazione. Per maggiori informazioni dettagliate sulle sostanze allergeniche presenti, si prega di consultare il personale di sala prima di ordinare.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="py-20 bg-[#FBFBFA] border-t border-stone-200/40">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs uppercase tracking-widest text-stone-400 font-semibold block">Posizione Unica</span>
+                    <h2 class="text-3xl md:text-4xl font-serif text-stone-900">Nel cuore della città</h2>
+                    <p class="text-stone-600 font-light leading-relaxed">
+                        Ci trovi in <strong>Via Luigi Cadorna 7</strong>, Trieste. Una location raffinata e riservata a ridosso delle splendide rive storiche cittadine, a soli due passi da Piazza Unità d'Italia. 
+                    </p>
+                    <div class="pt-4">
+                        <a href="https://www.google.it/maps/place/RIVEA+Restaurant/@45.6486202,13.7628424,414m/data=!3m1!1e3!4m10!1m3!11m2!2sQ-fC6jCM7zUQMTtT0jN-ZA!3e3!3m5!1s0x477b6bcf9e9b1a71:0xa324acd22703f1d6!8m2!3d45.6486202!4d13.7652242!16s%2Fg%2F11z5_ds8lq?entry=ttu" target="_blank" rel="noopener" class="inline-flex items-center text-sm tracking-widest font-medium uppercase text-stone-900 hover:text-stone-500 transition-colors group">
+                            <span>Apri in Google Maps</span>
+                            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 h-[450px] w-full bg-stone-200 border border-stone-200 shadow-sm relative overflow-hidden">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2787.65345634567!2d13.7652242!3d45.6486202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477b6bcf9e9b1a71%3A0xa324acd22703f1d6!2sRIVEA+Restaurant!5e0!3m2!1sit!2sit!4v1710000000000" 
+                        class="w-full h-full min-h-[450px] border-0" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contatti" class="py-24 bg-white border-t border-stone-200/60 scroll-mt-10">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <div class="space-y-10">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-stone-400 font-semibold block mb-2">Orari e Disponibilità</span>
+                        <h2 class="text-3xl font-serif text-stone-900 mb-6">Orari di Apertura</h2>
+                        
+                        <div class="border-t border-stone-100 text-sm font-light text-stone-600 divide-y divide-stone-100">
+                            <div class="py-3 flex justify-between">
+                                <span class="font-medium text-stone-800">Lunedì - Venerdì</span>
+                                <span>12:30 — 14:30 / 19:30 — 22:30</span>
+                            </div>
+                            <div class="py-3 flex justify-between">
+                                <span class="font-medium text-stone-800">Sabato</span>
+                                <span>19:30 — 23:00</span>
+                            </div>
+                            <div class="py-3 flex justify-between text-amber-800 font-medium">
+                                <span>Domenica</span>
+                                <span class="uppercase tracking-wider text-xs bg-amber-50 px-2 py-0.5">Chiuso</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 pt-4 border-t border-stone-200/60">
+                        <h3 class="text-sm font-medium uppercase tracking-widest text-stone-400">Contatti Rapidi</h3>
+                        <p class="text-xl font-serif">
+                            <a href="tel:+39040123456" class="text-stone-900 hover:underline inline-flex items-center">
+                                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                +39 040 123456
+                            </a>
+                        </p>
+                        <p class="text-stone-600 font-light text-sm">
+                            Consigliamo caldamente la richiesta di prenotazione anticipata per i servizi serali. Email: info@rivearestaurant.it
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-[#FBFBFA] p-8 border border-stone-200/40" id="prenota">
+                    <h3 class="text-xl font-serif text-stone-900 mb-6">Richiedi un tavolo</h3>
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+                        <input type="hidden" name="access_key" value="d778eaed-709c-4dee-88c8-88be407fbcd6">
+                        <input type="hidden" name="subject" value="Nuova Prenotazione RIVEA - Trieste">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-stone-500 font-medium mb-1.5">Nome Completo</label>
+                            <input type="text" name="name" required class="w-full bg-white border border-stone-200 px-4 py-2.5 text-sm rounded-none focus:outline-none focus:border-stone-900 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-stone-500 font-medium mb-1.5">Indirizzo Email</label>
+                            <input type="email" name="email" required class="w-full bg-white border border-stone-200 px-4 py-2.5 text-sm rounded-none focus:outline-none focus:border-stone-900 transition-colors">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-stone-500 font-medium mb-1.5">Ospiti</label>
+                                <select name="guests" class="w-full bg-white border border-stone-200 px-4 py-2.5 text-sm rounded-none focus:outline-none focus:border-stone-900 transition-colors">
+                                    <option value="2">2 Persone</option>
+                                    <option value="3">3 Persone</option>
+                                    <option value="4">4 Persone</option>
+                                    <option value="5">5 Persone</option>
+                                    <option value="6">6 Persone</option>
+                                    <option value="7">7 Persone</option>
+                                    <option value="8">8 Persone</option>
+                                    <option value="5+">9+ Persone</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-stone-500 font-medium mb-1.5">Data</label>
+                                <input type="date" name="date" required class="w-full bg-white border border-stone-200 px-4 py-2.5 text-sm rounded-none focus:outline-none focus:border-stone-900 transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-stone-500 font-medium mb-1.5">Note e Intolleranze</label>
+                            <textarea name="message" rows="2" class="w-full bg-white border border-stone-200 px-4 py-2.5 text-sm rounded-none focus:outline-none focus:border-stone-900 transition-colors resize-none" placeholder="Es. celiachia, allergie..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-stone-900 hover:bg-sage text-white text-xs uppercase tracking-widest font-semibold py-3.5 transition-colors duration-300 rounded-none">
+                            Invia Richiesta di Prenotazione
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-stone-900 text-stone-400 py-12 text-sm font-light">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <p class="font-serif text-white tracking-widest uppercase mb-1">Rivea Restaurant</p>
+                <p class="text-xs text-stone-500">© 2026 RIVEA Trieste | Via Luigi Cadorna 7. Tutti i diritti riservati.</p>
+            </div>
+            
+            <div class="flex space-x-6 text-xs uppercase tracking-widest font-medium text-stone-300">
+                <a href="#" class="hover:text-white transition-colors">Facebook</a>
+                <a href="https://www.instagram.com/rivea_restaurant/" class="hover:text-white transition-colors">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        const bar1 = document.getElementById('bar1');
+        const bar2 = document.getElementById('bar2');
+        const bar3 = document.getElementById('bar3');
+
+        function toggleMenu() {
+            const isOpen = mobileMenu.classList.contains('translate-x-0');
+            
+            if (!isOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+                bar1.classList.add('rotate-45', 'translate-y-1.5');
+                bar2.classList.add('opacity-0');
+                bar3.classList.add('-rotate-45', '-translate-y-1.5');
+            } else {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+                bar1.classList.remove('rotate-45', 'translate-y-1.5');
+                bar2.classList.remove('opacity-0');
+                bar3.classList.remove('-rotate-45', '-translate-y-1.5');
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'shadow-sm');
+            } else {
+                header.classList.remove('py-2', 'shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
